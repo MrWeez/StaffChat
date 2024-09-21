@@ -30,16 +30,16 @@ public class StaffChat implements CommandExecutor {
             if(player.hasPermission("staffchat.use")) {
 
                 if(strings.length == 0) {
-                    player.sendMessage(ChatColor.RED + "Usage: /staffchat <message>");
+                    player.sendMessage(ChatColor.RED + "Использование: /staffchat <сообщение>");
                 }
 
                 else if(strings.length == 1 && strings[0].equalsIgnoreCase("toggle")) {
                     if(plugin.toggledPlayers.contains(player)) {
                         plugin.toggledPlayers.remove(player);
-                        player.sendMessage(ChatColor.RED + "StaffChat toggled off");
+                        player.sendMessage(ChatColor.RED + "Стафф-чат выключен");
                     } else {
                         plugin.toggledPlayers.add(player);
-                        player.sendMessage(ChatColor.GREEN + "StaffChat toggled on");
+                        player.sendMessage(ChatColor.GREEN + "Стафф-чат включён");
                     }
                 }
 

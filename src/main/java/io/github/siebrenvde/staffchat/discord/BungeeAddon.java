@@ -53,7 +53,7 @@ public class BungeeAddon extends SimpleAddon {
         User user = command.getMessage().getAuthor();
         String msg = command.getMessage().getContentRaw();
         if(msg.split(" ").length == 1) {
-            command.reply("**Usage**: ***" + prefix + command.getName() + " <message>***");
+            command.reply("**Использование**: `" + prefix + command.getName() + " <сообщение>`");
         } else {
             BungeeUtils.sendPermissionMessage(plugin.minecraftLayout(msg, user), "staffchat.see");
         }

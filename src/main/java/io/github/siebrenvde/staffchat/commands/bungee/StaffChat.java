@@ -31,16 +31,16 @@ public class StaffChat extends Command {
             if(player.hasPermission("staffchat.use")) {
 
                 if(strings.length == 0) {
-                    player.sendMessage(new TextComponent(ChatColor.RED + "Usage: /staffchat <message>"));
+                    player.sendMessage(new TextComponent(ChatColor.RED + "Использование: /staffchat <сообщение>"));
                 }
 
                 else if(strings.length == 1 && strings[0].equalsIgnoreCase("toggle")) {
                     if(plugin.toggledPlayers.contains(player)) {
                         plugin.toggledPlayers.remove(player);
-                        player.sendMessage(new TextComponent(ChatColor.RED + "StaffChat toggled off"));
+                        player.sendMessage(new TextComponent(ChatColor.RED + "Стафф-чат выключен"));
                     } else {
                         plugin.toggledPlayers.add(player);
-                        player.sendMessage(new TextComponent(ChatColor.GREEN + "StaffChat toggled on"));
+                        player.sendMessage(new TextComponent(ChatColor.GREEN + "Стафф-чат включён"));
                     }
                 }
 
@@ -59,7 +59,7 @@ public class StaffChat extends Command {
         else {
 
             if(strings.length == 0) {
-                plugin.getLogger().info(ChatColor.RED + "Usage: /staffchat <message>");
+                plugin.getLogger().info(ChatColor.RED + "Использование: /staffchat <сообщение>");
             } else {
                 BungeeUtils.sendPermissionMessage(plugin.generalLayout(msg, "CONSOLE", "CONSOLE", "CONSOLE"), "staffchat.see");
                 addon.sendMessage(plugin.discordLayout(msg, "CONSOLE", "CONSOLE", "CONSOLE"));

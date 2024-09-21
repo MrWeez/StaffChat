@@ -1,7 +1,5 @@
 package io.github.siebrenvde.staffchat;
 
-import io.github.siebrenvde.staffchat.commands.bungee.HelpOp;
-import io.github.siebrenvde.staffchat.commands.bungee.Report;
 import io.github.siebrenvde.staffchat.commands.bungee.StaffChat;
 import io.github.siebrenvde.staffchat.discord.BungeeAddon;
 import io.github.siebrenvde.staffchat.events.BungeeMessageEvent;
@@ -41,8 +39,6 @@ public class Bungee extends Plugin {
 
     private void registerCommands(){
         getProxy().getPluginManager().registerCommand(this, new StaffChat(this));
-        getProxy().getPluginManager().registerCommand(this, new Report(this));
-        getProxy().getPluginManager().registerCommand(this, new HelpOp(this));
     }
 
     private File file;
@@ -83,7 +79,7 @@ public class Bungee extends Plugin {
         String dscMsg = msg.replaceFirst(p + "sc ", "").replaceFirst(p + "staffchat ", "").replaceFirst(p + "schat ", "").replaceFirst(p + "staffc ", "");
 
         return BungeeUtils.translateCC(config.getString("minecraft-layout")
-                .replace("%username%", user.getName())
+                .replace("%username%", user.getEffectiveName())
                 .replace("%usertag%", user.getAsTag())
                 .replace("%message%", dscMsg));
     }
@@ -94,36 +90,6 @@ public class Bungee extends Plugin {
                 .replace("%username%", player)
                 .replace("%server%", server)
                 .replace("%message%", BungeeUtils.removeCC(msg));
-    }
-
-    public String rmdLayout(String msg, String reporter, String reported, String server) {
-        return config.getString("report-message-discord")
-                .replace("%reporter%", reporter)
-                .replace("%reported%", reported)
-                .replace("%server%", server)
-                .replace("%reason%", BungeeUtils.removeCC(msg));
-    }
-
-    public String rmLayout(String msg, String reporter, String reported, String server) {
-        return BungeeUtils.translateCC(config.getString("report-message")
-                .replace("%reporter%", reporter)
-                .replace("%reported%", reported)
-                .replace("%server%", server)
-                .replace("%reason%", msg));
-    }
-
-    public String homdLayout(String msg, String player, String server) {
-        return config.getString("helpop-message-discord")
-                .replace("%player%", player)
-                .replace("%server%", server)
-                .replace("%message%", BungeeUtils.removeCC(msg));
-    }
-
-    public String homLayout(String msg, String player, String server) {
-        return BungeeUtils.translateCC(config.getString("helpop-message")
-                .replace("%player%", player)
-                .replace("%server%", server)
-                .replace("%message%", msg));
     }
 
 }

@@ -2,5 +2,5 @@ main: io.github.siebrenvde.staffchat.Bungee
 name: StaffChat
 description: Simple Spicord staffchat plugin
 author: Siebrenvde
-version: 1.4.7
+version: 1.5.0
 depend: [Spicord]

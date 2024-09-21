@@ -1,7 +1,5 @@
 package io.github.siebrenvde.staffchat;
 
-import io.github.siebrenvde.staffchat.commands.spigot.HelpOp;
-import io.github.siebrenvde.staffchat.commands.spigot.Report;
 import io.github.siebrenvde.staffchat.commands.spigot.StaffChat;
 import io.github.siebrenvde.staffchat.discord.SpigotAddon;
 import io.github.siebrenvde.staffchat.events.SpigotMessageEvent;
@@ -34,8 +32,6 @@ public class Spigot extends JavaPlugin {
 
     private void registerCommands() {
         getCommand("staffchat").setExecutor(new StaffChat(this));
-        getCommand("report").setExecutor(new Report(this));
-        getCommand("helpop").setExecutor(new HelpOp(this));
     }
 
     private FileConfiguration config = getConfig();
@@ -53,7 +49,7 @@ public class Spigot extends JavaPlugin {
         String dscMsg = msg.replaceFirst(p + "sc ", "").replaceFirst(p + "staffchat ", "").replaceFirst(p + "schat ", "").replaceFirst(p + "staffc ", "");
 
         return SpigotUtils.translateCC(config.getString("minecraft-layout")
-                .replace("%username%", user.getName())
+                .replace("%username%", user.getEffectiveName())
                 .replace("%usertag%", user.getAsTag())
                 .replace("%message%", dscMsg));
     }
@@ -63,32 +59,6 @@ public class Spigot extends JavaPlugin {
                 .replace("%displayname%", playerDN)
                 .replace("%username%", player)
                 .replace("%message%", SpigotUtils.removeCC(msg));
-    }
-
-    public String rmdLayout(String msg, String reporter, String reported) {
-        return config.getString("report-message-discord")
-                .replace("%reporter%", reporter)
-                .replace("%reported%", reported)
-                .replace("%reason%", SpigotUtils.removeCC(msg));
-    }
-
-    public String rmLayout(String msg, String reporter, String reported) {
-        return SpigotUtils.translateCC(config.getString("report-message")
-                .replace("%reporter%", reporter)
-                .replace("%reported%", reported)
-                .replace("%reason%", msg));
-    }
-
-    public String homdLayout(String msg, String player) {
-        return config.getString("helpop-message-discord")
-                .replace("%player%", player)
-                .replace("%message%", SpigotUtils.removeCC(msg));
-    }
-
-    public String homLayout(String msg, String player) {
-        return SpigotUtils.translateCC(config.getString("helpop-message")
-                .replace("%player%", player)
-                .replace("%message%", msg));
     }
 
 }

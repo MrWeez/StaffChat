@@ -2,14 +2,10 @@ main: io.github.siebrenvde.staffchat.Spigot
 name: StaffChat
 description: Simple Spicord staffchat plugin
 author: Siebrenvde
-version: 1.4.7
+version: 1.5.0
 depend: [Spicord]
 
 commands:
   staffchat:
     aliases: [sc, schat, staffc]
     description: Chat with other staff members
-  report:
-    description: Report players
-  helpop:
-    description: Ask staff for help
