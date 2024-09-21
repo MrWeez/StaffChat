@@ -13,16 +13,15 @@ import net.dv8tion.jda.api.entities.emoji.Emoji;
 public class BungeeAddon extends SimpleAddon {
 
     private Bungee plugin;
-    private static BungeeAddon instance;
     private DiscordBot bot;
     public String prefix;
 
     public BungeeAddon(Bungee pl) {
         super("StaffChat","staffchat","Siebrenvde");
-        instance = this;
         plugin = pl;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onReady(DiscordBot bot) {
         this.bot = bot;
@@ -31,6 +30,7 @@ public class BungeeAddon extends SimpleAddon {
         bot.getJda().addEventListener(new MessageListenerBungee(plugin));
     }
 
+    @SuppressWarnings("deprecation")
     private void enableCommands() {
         if(plugin.config.getBoolean("enable-discord-commands")) {
             bot.onCommand("sc", this::staffChat);

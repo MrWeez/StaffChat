@@ -13,16 +13,15 @@ import net.dv8tion.jda.api.entities.emoji.Emoji;
 public class SpigotAddon extends SimpleAddon {
 
     private Spigot plugin;
-    private static SpigotAddon instance;
     private DiscordBot bot;
     public String prefix;
 
     public SpigotAddon(Spigot pl) {
         super("StaffChat","staffchat","Siebrenvde");
-        instance = this;
         plugin = pl;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onReady(DiscordBot bot) {
         this.bot = bot;
@@ -31,6 +30,7 @@ public class SpigotAddon extends SimpleAddon {
         bot.getJda().addEventListener(new MessageListenerSpigot(plugin));
     }
 
+    @SuppressWarnings("deprecation")
     private void enableCommands() {
         if(plugin.getConfig().getBoolean("enable-discord-commands"))  {
             bot.onCommand("sc", this::staffChat);
