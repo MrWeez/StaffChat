@@ -37,7 +37,12 @@ public class MessageListenerSpigot extends ListenerAdapter {
 
                         SpigotUtils.sendPermissionMessage(plugin.minecraftLayout(msg, author), "staffchat.see");
 
-                        message.addReaction(Emoji.fromUnicode("📨")).queue();
+                        if(plugin.getConfig().getBoolean("enable-reactions")) {
+
+                            String reactionEmoji = plugin.getConfig().getString("success-reaction", "📨");
+                            message.addReaction(Emoji.fromUnicode(reactionEmoji)).queue();
+
+                        }
 
                     }
 

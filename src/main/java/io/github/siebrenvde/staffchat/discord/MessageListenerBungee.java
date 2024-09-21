@@ -37,7 +37,12 @@ public class MessageListenerBungee extends ListenerAdapter {
 
                         BungeeUtils.sendPermissionMessage(plugin.minecraftLayout(msg, author), "staffchat.see");
 
-                        message.addReaction(Emoji.fromUnicode("📨")).queue();
+                        if(plugin.config.getBoolean("enable-reactions")) {
+
+                            String reactionEmoji = plugin.config.getString("success-reaction", "📨");
+                            message.addReaction(Emoji.fromUnicode(reactionEmoji)).queue();
+
+                        }
 
                     }
 

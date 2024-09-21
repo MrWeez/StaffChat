@@ -6,6 +6,13 @@ staff-channel: "123456789012345678"
 # Enabling this forces you to use -sc to send messages to the server
 enable-discord-commands: false
 
+# Enabling this will force the bot to add a reaction to the message if it has been sent to the server
+enable-reactions: true
+
+# The reaction that the bot will add to the message if it has been sent to the server
+# Note: You can only use standard emojis. Custom server emojis are not supported!
+success-reaction: "📨"
+
 # ----------------------
 # StaffChat
 # ----------------------

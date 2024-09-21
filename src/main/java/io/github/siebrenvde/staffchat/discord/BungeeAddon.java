@@ -8,6 +8,7 @@ import io.github.siebrenvde.staffchat.util.BungeeUtils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 
 public class BungeeAddon extends SimpleAddon {
 
@@ -56,6 +57,10 @@ public class BungeeAddon extends SimpleAddon {
             command.reply("**Использование**: `" + prefix + command.getName() + " <сообщение>`");
         } else {
             BungeeUtils.sendPermissionMessage(plugin.minecraftLayout(msg, user), "staffchat.see");
+            if(plugin.config.getBoolean("enable-reactions")) {
+                String reactionEmoji = plugin.config.getString("success-reaction", "📨");
+                command.getMessage().addReaction(Emoji.fromUnicode(reactionEmoji)).queue();
+            }
         }
     }
 

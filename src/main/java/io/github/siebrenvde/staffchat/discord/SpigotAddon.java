@@ -8,6 +8,7 @@ import io.github.siebrenvde.staffchat.util.SpigotUtils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 
 public class SpigotAddon extends SimpleAddon {
 
@@ -56,6 +57,10 @@ public class SpigotAddon extends SimpleAddon {
             command.reply("**Использование**: `" + prefix + command.getName() + " <сообщение>`");
         } else {
             SpigotUtils.sendPermissionMessage(plugin.minecraftLayout(msg, user), "staffchat.see");
+            if(plugin.getConfig().getBoolean("enable-reactions")) {
+                String reactionEmoji = plugin.getConfig().getString("success-reaction", "📨");
+                command.getMessage().addReaction(Emoji.fromUnicode(reactionEmoji)).queue();
+            }
         }
     }
 
