@@ -13,11 +13,14 @@ import net.dv8tion.jda.api.entities.emoji.Emoji;
 public class SpigotAddon extends SimpleAddon {
 
     private Spigot plugin;
+    @SuppressWarnings("unused")
+    private static SpigotAddon instance;
     private DiscordBot bot;
     public String prefix;
 
     public SpigotAddon(Spigot pl) {
         super("StaffChat","staffchat","Siebrenvde");
+        instance = this;
         plugin = pl;
     }
 

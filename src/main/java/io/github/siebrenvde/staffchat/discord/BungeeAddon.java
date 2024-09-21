@@ -13,11 +13,14 @@ import net.dv8tion.jda.api.entities.emoji.Emoji;
 public class BungeeAddon extends SimpleAddon {
 
     private Bungee plugin;
+    @SuppressWarnings("unused")
+    private static BungeeAddon instance;
     private DiscordBot bot;
     public String prefix;
 
     public BungeeAddon(Bungee pl) {
         super("StaffChat","staffchat","Siebrenvde");
+        instance = this;
         plugin = pl;
     }
 
