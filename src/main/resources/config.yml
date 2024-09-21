@@ -30,18 +30,3 @@ minecraft-layout: "&9Discord &4StaffChat &c%usertag%&4: &a%message%"
 # %username% - Displays the player's username
 # %message% - Displays the sent message
 discord-layout: "**[StaffChat] %username%**: %message%"
-
-# ----------------------
-# Reports & Helpop
-# ----------------------
-
-# Whether to use embed in reports (RECOMMENDED)
-use-embed: true
-
-report-message-discord: "**[Report] %reporter%** reported **%reported%** for *%reason%*"
-
-report-message: "&c%reporter% &7reported &c%reported% &7for &c%reason%"
-
-helpop-message-discord: "**[HelpOp] %player%**: %message%"
-
-helpop-message: "&cHelpOp %player%: &e%message%"

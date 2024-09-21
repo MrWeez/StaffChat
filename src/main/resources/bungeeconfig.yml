@@ -32,18 +32,3 @@ minecraft-layout: "&9Discord &4StaffChat &c%usertag%&4: &a%message%"
 # %server% - Displays the server the player is in
 # %message% - Displays the sent message
 discord-layout: "**[StaffChat] %username% (%server%)**: %message%"
-
-# ----------------------
-# Reports & Helpop
-# ----------------------
-
-# Whether to use embed in reports (RECOMMENDED)
-use-embed: true
-
-report-message-discord: "**[Report] %reporter%** reported **%reported%** on **%server%** for *%reason%*"
-
-report-message: "&c%reporter% &7reported &c%reported% &7on &c%server% &7for &c%reason%"
-
-helpop-message-discord: "**[HelpOp] %player% (%server%)**: %message%"
-
-helpop-message: "&cHelpOp %player% (%server%): &e%message%"
