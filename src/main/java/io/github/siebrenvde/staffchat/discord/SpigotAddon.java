@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 public class SpigotAddon extends SimpleAddon {
 
     private Spigot plugin;
+    @SuppressWarnings("unused")
     private static SpigotAddon instance;
     private DiscordBot bot;
     public String prefix;
@@ -22,6 +23,7 @@ public class SpigotAddon extends SimpleAddon {
         plugin = pl;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onReady(DiscordBot bot) {
         this.bot = bot;
