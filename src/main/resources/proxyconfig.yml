@@ -1,5 +1,5 @@
 # Spicord StaffChat by Siebrenvde
-# Version 1.5.0
+# Version ${project.version}
 
 staff-channel: "123456789012345678"
 
