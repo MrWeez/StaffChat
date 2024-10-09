@@ -2,7 +2,7 @@ main: io.github.siebrenvde.staffchat.Spigot
 name: StaffChat
 description: Simple Spicord staffchat plugin
 author: Siebrenvde
-version: 1.4.7
+version: ${project.version}
 depend: [Spicord]
 
 commands:
