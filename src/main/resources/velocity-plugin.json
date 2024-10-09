@@ -1,0 +1,15 @@
+{
+    "id": "staffchat",
+    "name": "StaffChat",
+    "version": "${project.version}",
+    "description": "Simple Spicord staffchat plugin",
+    "authors": ["Siebrenvde"],
+    "main": "io.github.siebrenvde.staffchat.Velocity",
+    "dependencies": [
+      {
+        "id": "spicord",
+        "optional": false
+      }
+    ]
+  }
+  
