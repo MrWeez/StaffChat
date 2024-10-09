@@ -60,7 +60,7 @@ public class Bungee extends Plugin {
 
         try {
             if(!file.exists()) {
-                Files.copy(getClass().getResourceAsStream("/bungeeconfig.yml"), Paths.get(ProxyServer.getInstance().getPluginsFolder() + "/StaffChat/config.yml"));
+                Files.copy(getClass().getResourceAsStream("/proxyconfig.yml"), Paths.get(ProxyServer.getInstance().getPluginsFolder() + "/StaffChat/config.yml"));
             }
             config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
         } catch (IOException e) {
