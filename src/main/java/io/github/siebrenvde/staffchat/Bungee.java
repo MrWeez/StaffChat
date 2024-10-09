@@ -83,7 +83,7 @@ public class Bungee extends Plugin {
         String dscMsg = msg.replaceFirst(p + "sc ", "").replaceFirst(p + "staffchat ", "").replaceFirst(p + "schat ", "").replaceFirst(p + "staffc ", "");
 
         return BungeeUtils.translateCC(config.getString("minecraft-layout")
-                .replace("%username%", user.getName())
+                .replace("%username%", user.getEffectiveName())
                 .replace("%usertag%", user.getAsTag())
                 .replace("%message%", dscMsg));
     }
